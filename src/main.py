@@ -15,6 +15,7 @@ paths = [
 ]
 
 # Arguments
+if args.edge: paths.append(os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\Edge\User Data\Default\Cache"))
 if args.chrome: paths.append(os.path.expandvars(r"%LOCALAPPDATA%\Google\Chrome\User Data\Default\Cache"))
 if args.firefox: paths.extend(utils.get_firefox_cache_path())
 if args.wupdate:

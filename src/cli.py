@@ -12,6 +12,12 @@ def get_args():
     )
 
     parser.add_argument(
+        "-edge",
+        action="store_true",
+        help="clear Microsoft Edge cache"
+    )
+
+    parser.add_argument(
         "-firefox",
         action="store_true",
         help="clear Firefox cache"
