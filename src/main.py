@@ -11,12 +11,11 @@ paths = [
     r"C:\Windows\SoftwareDistribution",
     r"C:\Windows\Temp",
     os.path.expandvars(r"%userprofile%\AppData\Local\Temp"),
+    os.path.expandvars(r"%LOCALAPPDATA%\IconCache.db"),
 ]
 
 if args.chrome: paths.append(os.path.expandvars(r"%LOCALAPPDATA%\Google\Chrome\User Data\Default\Cache"))
-
-if args.firefox:
-    paths.extend(utils.get_firefox_cache_path())
+if args.firefox: paths.extend(utils.get_firefox_cache_path())
 
 for path in paths:
     utils.remove(path)
