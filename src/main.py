@@ -12,8 +12,12 @@ paths = [
     r"C:\Windows\Temp",
     os.path.expandvars(r"%userprofile%\AppData\Local\Temp"),
     os.path.expandvars(r"%LOCALAPPDATA%\IconCache.db"),
-    glob.glob(os.path.expandvars(r"%USERPROFILE%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_*.db"))
 ]
+
+# Proper way to insert thumbnail cache paths
+paths.extend(glob.glob(os.path.expandvars(
+    r"%USERPROFILE%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_*.db"
+)))
 
 # Arguments
 if args.edge: paths.append(os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\Edge\User Data\Default\Cache"))
