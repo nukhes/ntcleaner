@@ -12,6 +12,7 @@ paths = [
     r"C:\Windows\Temp",
     os.path.expandvars(r"%userprofile%\AppData\Local\Temp"),
     os.path.expandvars(r"%LOCALAPPDATA%\IconCache.db"),
+    glob.glob(os.path.expandvars(r"%USERPROFILE%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_*.db"))
 ]
 
 # Arguments
