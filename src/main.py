@@ -14,8 +14,12 @@ paths = [
     os.path.expandvars(r"%LOCALAPPDATA%\IconCache.db"),
 ]
 
+# Arguments
 if args.chrome: paths.append(os.path.expandvars(r"%LOCALAPPDATA%\Google\Chrome\User Data\Default\Cache"))
 if args.firefox: paths.extend(utils.get_firefox_cache_path())
+if args.wupdate:
+    paths.append(os.path.expandvars(r"%windir%\SoftwareDistribution\Download"))
+    paths.append(os.path.expandvars(r"%windir%\System32\catroot2"))
 
 for path in paths:
     utils.remove(path)
