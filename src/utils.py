@@ -2,15 +2,17 @@ import os
 import shutil
 import glob
 
-def rmdir(path):
+def remove(path):
     if not os.path.exists(path):
         return
-    for item in glob.glob(os.path.join(path, "*")):
+    if os.path.isfile(path) or os.path.islink(path):
         try:
-            if os.path.isfile(item) or os.path.islink(item):
-                os.unlink(item)
-            elif os.path.isdir(item):
-                shutil.rmtree(item, ignore_errors=True)
+            os.unlink(path)
+        except Exception:
+            pass
+    elif os.path.isdir(path):
+        try:
+            shutil.rmtree(path, ignore_errors=True)
         except Exception:
             pass
 

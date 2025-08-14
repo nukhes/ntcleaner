@@ -19,4 +19,4 @@ if args.firefox:
     paths.extend(utils.get_firefox_cache_path())
 
 for path in paths:
-    utils.rmdir(path)
+    utils.remove(path)
